@@ -9,15 +9,17 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td>Eliana</td>
-            <td>maria@gmail.com</td>
-            <td>(11) 97165-1111</td>
-            <td>Anapolis</td>
-            <td>
-                <button type="button" class="button green">editar</button>
-                <button type="button" class="button red">excluir</button>
-            </td>
-        </tr>
+        {% for cadastro in cadastros %}
+            <tr>
+                <td>{{ cadastro.nome }}</td>
+                <td>{{ cadastro.email }}</td>
+                <td>{{ cadastro.numero_celular }}</td>
+                <td>{{ cadastro.cidade }}</td>
+                <td>
+                    <button type="button" class="button green">editar</button>
+                     <button type="button" class="button red">excluir</button>
+                    </td> 
+            </tr>
+        {% endfor %}
     </tbody>
 </table>

@@ -4,7 +4,7 @@ from .models import Cadastro_Clientes
 
 
 def pagina_inicial(request):
-    cadastro = Cadastro_Clientes.objects.all()
+    cadastro = Cadastro_Clientes.objects.all().order_by('-id')
     dados = {'cadastros': cadastro}
     return render(request, 'firstapp/html/model-page.html', dados)
 

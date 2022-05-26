@@ -7,16 +7,18 @@
                 <h2>Novo Cliente</h2>
                 <span class="modal-close" id="modalClose">&#10006;</span>
             </header>
-            <form class="modal-form">
-                <input type="text" class="modal-field" placeholder="Nome do Cliente">
-                <input type="email" class="modal-field" placeholder="e-mail do Cliente">
-                <input type="text" class="modal-field" placeholder="Celular do Cliente">
-                <input type="text" class="modal-field" placeholder="Cidade do Cliente">
+            <form class="modal-form" action="/submit/" method="POST">
+                    {% csrf_token %}
+                    <input type="text" class="modal-field" name="nome_cliente" placeholder="Nome do Cliente" required>
+                    <input type="email" class="modal-field" name="email_cliente" placeholder="e-mail do Cliente" required>
+                    <input type="text" class="modal-field" name="celular_cliente" placeholder="Celular do Cliente" required>
+                    <input type="text" class="modal-field" name="cidade_cliente" placeholder="Cidade do Cliente" required>
+                
+                <footer class="modal-footer">
+                    <button class="button green" type="submit">Salvar</button>
+                    <button class="button blue">Cancelar</button>
+                </footer>
             </form>
-            <footer class="modal-footer">
-                <button class="button green">Salvar</button>
-                <button class="button blue">Cancelar</button>
-            </footer>
         </div>
     </div>
 </main>

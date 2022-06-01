@@ -1,6 +1,6 @@
 # django_cadastro_clientes
 
-Site de cadastro de clientes, peguei o Front-End do Prof. Fernando Leonid e fiz o CRUD Back-End em Django, faltando apenas finalizar o Update.
+Site de cadastro de clientes, peguei o Front-End do Prof. Fernando Leonid e fiz o CRUD Back-End em Django.
 
 Todos os dados registrados no print são fictícios.
 

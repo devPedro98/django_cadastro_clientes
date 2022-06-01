@@ -1,5 +1,6 @@
-from django.shortcuts import redirect, render
+from django.shortcuts import get_object_or_404, redirect, render
 
+from .forms import UpdateForm
 from .models import Cadastro_Clientes
 
 
@@ -26,12 +27,18 @@ def submit_post(request):
     return redirect('/')
 
 
-def edit_post(request, id_cadastro):
-    id_cadastro = request.GET.get('id')
-    dados = {}
-    if id_cadastro:
-        dados['cadastro'] = Cadastro_Clientes.objects.get(id=id_cadastro)
-    return render(request, 'firstapp/html/editar-cadastro.html', dados)
+def edit_post(request, pk):
+    atualizar = get_object_or_404(Cadastro_Clientes, pk=pk)
+    form = UpdateForm(instance=atualizar)
+    if request.method == 'POST':
+        form = UpdateForm(request.POST, instance=atualizar)
+        if form.is_valid():
+            atualizar.save()
+            return redirect('/')
+        else:
+            return render(request, 'firstapp/html/editar-cadastro.html', {'form': form, 'atualizar': atualizar})  # noqa
+    else:
+        return render(request, 'firstapp/html/editar-cadastro.html', {'form': form, 'atualizar': atualizar})  # noqa
 
 
 def delete_cadastro(request, id_cadastro):

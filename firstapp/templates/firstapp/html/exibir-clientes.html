@@ -16,7 +16,7 @@
                 <td>{{ cadastro.numero_celular }}</td>
                 <td>{{ cadastro.cidade }}</td>
                 <td>
-                     <button type="button" class="button green"><a href="edit/id={{ cadastro.id }}/" style="text-decoration:none">Editar</a></button>
+                     <button type="button" class="button green"><a href="{% url 'url_update' cadastro.id %}" style="text-decoration:none">Editar</a></button>
                      <button type="button" class="button red"><a href="delete/{{ cadastro.id }}/" style="text-decoration:none">Excluir</a></button>
                     </td> 
             </tr>

@@ -9,3 +9,6 @@ class Cadastro_Clientes(models.Model):
 
     def __str__(self):
         return self.nome
+
+    def get_nome_cliente(self):
+        return self.nome

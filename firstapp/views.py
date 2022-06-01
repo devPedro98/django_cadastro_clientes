@@ -24,3 +24,16 @@ def submit_post(request):
         Cadastro_Clientes.objects.create(
             nome=nome, email=email, numero_celular=celular, cidade=cidade)
     return redirect('/')
+
+
+def edit_post(request, id_cadastro):
+    id_cadastro = request.GET.get('id')
+    dados = {}
+    if id_cadastro:
+        dados['cadastro'] = Cadastro_Clientes.objects.get(id=id_cadastro)
+    return render(request, 'firstapp/html/editar-cadastro.html', dados)
+
+
+def delete_cadastro(request, id_cadastro):
+    Cadastro_Clientes.objects.filter(id=id_cadastro).delete()
+    return redirect('/')
